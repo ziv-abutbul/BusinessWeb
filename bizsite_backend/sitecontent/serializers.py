@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import SiteSettings, GalleryImage
+from .models import SiteSettings, GalleryImage , ContactInfo
 
 class SiteSettingsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,3 +10,7 @@ class GalleryImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = GalleryImage
         fields = '__all__'
+class ContactInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContactInfo
+        fields = "__all__"

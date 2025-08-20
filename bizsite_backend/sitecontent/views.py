@@ -1,6 +1,6 @@
-from rest_framework import generics
-from .models import SiteSettings, GalleryImage
-from .serializers import SiteSettingsSerializer, GalleryImageSerializer
+from rest_framework import generics,viewsets
+from .models import ContactInfo, SiteSettings, GalleryImage
+from .serializers import ContactInfoSerializer, SiteSettingsSerializer, GalleryImageSerializer
 
 class SiteSettingsView(generics.RetrieveAPIView):
     queryset = SiteSettings.objects.all()
@@ -12,3 +12,8 @@ class SiteSettingsView(generics.RetrieveAPIView):
 class GalleryListView(generics.ListAPIView):
     queryset = GalleryImage.objects.filter(is_active=True)
     serializer_class = GalleryImageSerializer
+
+
+class ContactInfoViewSet(generics.ListAPIView):
+    queryset = ContactInfo.objects.all()
+    serializer_class = ContactInfoSerializer
