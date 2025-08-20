@@ -32,3 +32,10 @@ class ContactInfo(models.Model):
 
     def __str__(self):
         return f"{self.phone} | {self.email}"
+    
+class SiteLogo(models.Model):
+    image = models.ImageField(upload_to='logos/')
+    alt_text = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.alt_text or "Site Logo"

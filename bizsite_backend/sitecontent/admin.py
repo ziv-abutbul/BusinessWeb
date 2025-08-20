@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ContactInfo, SiteSettings, GalleryImage
+from .models import ContactInfo, SiteLogo, SiteSettings, GalleryImage
 
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(admin.ModelAdmin):
@@ -13,3 +13,7 @@ class GalleryImageAdmin(admin.ModelAdmin):
 @admin.register(ContactInfo)
 class ContactInfoAdmin(admin.ModelAdmin):
     list_display = ("phone", "email", "facebook", "whatsapp")
+
+@admin.register(SiteLogo)
+class SiteLogoAdmin(admin.ModelAdmin):
+    list_display = ('alt_text', 'image')

@@ -1,6 +1,7 @@
+from django.http import JsonResponse
 from rest_framework import generics,viewsets
-from .models import ContactInfo, SiteSettings, GalleryImage
-from .serializers import ContactInfoSerializer, SiteSettingsSerializer, GalleryImageSerializer
+from .models import ContactInfo, SiteLogo, SiteSettings, GalleryImage
+from .serializers import ContactInfoSerializer, SiteLogoSerializer, SiteSettingsSerializer, GalleryImageSerializer
 
 class SiteSettingsView(generics.RetrieveAPIView):
     queryset = SiteSettings.objects.all()
@@ -17,3 +18,10 @@ class GalleryListView(generics.ListAPIView):
 class ContactInfoViewSet(generics.ListAPIView):
     queryset = ContactInfo.objects.all()
     serializer_class = ContactInfoSerializer
+
+class SiteLogoView(generics.RetrieveAPIView):
+    queryset = SiteLogo.objects.all()
+    serializer_class = SiteLogoSerializer
+
+    def get_object(self):
+        return SiteLogo.objects.first()
