@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import SiteLogo, SiteSettings, GalleryImage , ContactInfo
+from .models import ContentSection, SiteLogo, SiteSettings, GalleryImage , ContactInfo
 
 class SiteSettingsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -19,3 +19,8 @@ class SiteLogoSerializer(serializers.ModelSerializer):
     class Meta:
         model = SiteLogo
         fields = ["image", "alt_text"]
+
+class ContentSectionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContentSection
+        fields = ['id', 'title', 'description', 'background_image', 'floating_image', 'order']

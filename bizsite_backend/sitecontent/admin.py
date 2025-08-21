@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ContactInfo, SiteLogo, SiteSettings, GalleryImage
+from .models import ContactInfo, SiteLogo, SiteSettings, GalleryImage , ContentSection
 
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(admin.ModelAdmin):
@@ -17,3 +17,7 @@ class ContactInfoAdmin(admin.ModelAdmin):
 @admin.register(SiteLogo)
 class SiteLogoAdmin(admin.ModelAdmin):
     list_display = ('alt_text', 'image')
+
+@admin.register(ContentSection)
+class ContentSectionAdmin(admin.ModelAdmin):
+    list_display = ('title','description','background_image','floating_image','order')

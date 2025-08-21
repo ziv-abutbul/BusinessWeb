@@ -39,3 +39,16 @@ class SiteLogo(models.Model):
 
     def __str__(self):
         return self.alt_text or "Site Logo"
+    
+class ContentSection(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField(blank=True)
+    background_image = models.ImageField(upload_to='sections/backgrounds/')
+    floating_image = models.ImageField(upload_to='sections/floating/', blank=True, null=True)
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return self.title
