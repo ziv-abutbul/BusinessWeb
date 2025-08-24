@@ -1,0 +1,21 @@
+<section class="hero">
+<video
+  #video
+  *ngIf="backgroundVideo"
+  [src]="backgroundVideo"
+  autoplay
+  muted
+  loop
+  playsinline
+  class="hero-video">
+</video>
+
+
+
+
+  <div class="overlay">
+    <h1>{{ headline }}</h1>
+    <p>{{ subheadline }}</p>
+    <a *ngIf="ctaText" class="cta" [href]="ctaLink">{{ ctaText }}</a>
+  </div>
+</section>

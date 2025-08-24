@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from rest_framework import generics,viewsets
-from .models import ContactInfo, ContentSection, FeatureGrid, SiteLogo, SiteSettings, GalleryImage
-from .serializers import ContactInfoSerializer, ContentSectionSerializer, FeatureGridSerializer, SiteLogoSerializer, SiteSettingsSerializer, GalleryImageSerializer
+from .models import ContactInfo, ContentSection, FeatureGrid, HeroSection, SiteLogo, SiteSettings, GalleryImage
+from .serializers import ContactInfoSerializer, ContentSectionSerializer, FeatureGridSerializer, HeroSectionSerializer, SiteLogoSerializer, SiteSettingsSerializer, GalleryImageSerializer
 
 class SiteSettingsView(generics.RetrieveAPIView):
     queryset = SiteSettings.objects.all()
@@ -34,3 +34,11 @@ class ContentSectionListView(generics.ListAPIView):
 class FeatureGridListView(generics.ListAPIView):
     queryset = FeatureGrid.objects.all()
     serializer_class = FeatureGridSerializer
+
+class HeroSectionView(generics.RetrieveAPIView):
+    queryset = HeroSection.objects.all()
+    serializer_class = HeroSectionSerializer
+
+    def get_object(self):
+        # מחזיר תמיד את ה-HeroSection הראשון (אם יש יותר ניתן לשנות ל-logic אחר)
+        return HeroSection.objects.first()

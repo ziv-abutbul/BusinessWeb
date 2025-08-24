@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ImagesService, SiteSettings, GalleryImage, ContentSection } from '../../services/images.service';
+import { ImagesService, SiteSettings, GalleryImage, ContentSection,HeroSection } from '../../services/images.service';
 import { ContentSectionComponent } from 'src/app/content-section/content-section.component';
 import { FeatureGridComponent } from 'src/app/components/feature-grid/feature-grid.component';
 import { TestimonialComponent } from 'src/app/components/testimonial/testimonial.component';
 import { FeatureItem,FeatureService } from 'src/app/services/feature.service';
+import { HeroSectionComponent } from 'src/app/components/hero/hero.component';
 
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,ContentSectionComponent , FeatureGridComponent,TestimonialComponent],
+  imports: [CommonModule,ContentSectionComponent , FeatureGridComponent,TestimonialComponent,HeroSectionComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -23,6 +24,7 @@ export class HomeComponent implements OnInit {
   sections: ContentSection[] = [];
   features: FeatureItem[] = [];   // 🔹 מוסיפים את זה
   columns: number = 3;
+  heroSectoion?: HeroSection;  // 🔹 לא HeroSectionComponent
 
   constructor(private imagesService: ImagesService,private FeatureService: FeatureService) {}
 
@@ -41,6 +43,9 @@ export class HomeComponent implements OnInit {
     this.FeatureService.getFeatures().subscribe(data => {
       this.features = data;
     });
+      this.imagesService.getHeroSection().subscribe(data => {
+      this.heroSectoion = data;
+  });
   }
 
   
