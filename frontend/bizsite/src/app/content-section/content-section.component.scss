@@ -1,0 +1,144 @@
+/* הגדרות כלליות ל־section */
+:host {
+  display: block;
+  min-height: 80vh;
+  padding: 3rem;
+  color: #fff;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+
+  /* מצב ראשוני (לפני כניסה למסך) */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s ease;
+}
+
+:host(.visible) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* מבנה כללי של ה־section */
+.content-section {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  background-size: cover;
+  background-position: center;
+}
+
+/* שכבת overlay */
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+/* אזור הטקסט */
+.text-area {
+  flex: 1;
+  padding: 1rem 2rem;
+}
+
+.text-area h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  margin-bottom: 1rem;
+}
+
+.text-area p {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.6;
+}
+
+/* אזור התמונה */
+.image-area {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image-area img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* תמונה צפה */
+.floating-image {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* אנימציות */
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: fadeInLeft 1s ease forwards;
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: fadeInRight 1s ease forwards;
+}
+
+@keyframes fadeInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .overlay {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .text-area {
+    padding: 1rem 0;
+  }
+
+  .image-area {
+    margin-top: 1.5rem;
+  }
+
+  .image-area img {
+    max-width: 100%;
+  }
+
+  .floating-image {
+    position: static;
+    transform: none;
+    margin-top: 1rem;
+    max-width: 180px;
+  }
+}

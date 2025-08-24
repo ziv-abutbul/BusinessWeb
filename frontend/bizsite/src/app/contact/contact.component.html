@@ -1,0 +1,25 @@
+<section id="contact" class="contact" *ngIf="contactInfo">
+  <h2>צור קשר</h2>
+
+  <div class="contact-grid">
+    <div class="contact-item" *ngIf="contactInfo.phone">
+      <i class="fas fa-phone-alt"></i>
+      <span>{{ contactInfo.phone }}</span>
+    </div>
+
+    <div class="contact-item" *ngIf="contactInfo.email">
+      <i class="fas fa-envelope"></i>
+      <span>{{ contactInfo.email }}</span>
+    </div>
+
+    <a class="contact-item link" *ngIf="contactInfo.facebook" [href]="contactInfo.facebook" target="_blank">
+      <i class="fab fa-facebook"></i>
+      <span>פייסבוק</span>
+    </a>
+
+    <a class="contact-item link" *ngIf="contactInfo.whatsapp" [href]="contactInfo.whatsapp" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+      <span>וואטסאפ</span>
+    </a>
+  </div>
+</section>
