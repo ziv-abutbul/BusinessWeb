@@ -11,6 +11,12 @@ export interface ContactInfo {
   whatsapp?: string;
 }
 
+// export interface FeatureItem {
+//   icon: string;   // class name for the icon (or URL if תמונה)
+//   title: string;
+//   description: string;
+// }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,4 +29,7 @@ export class ContactService {
   getContactInfo(): Observable<ContactInfo[]> {
     return this.http.get<ContactInfo[]>(`${this.apiUrl}/contact/`);
   }
+  // getFeatureItemInfo(): Observable<FeatureItem[]> {
+  //   return this.http.get<FeatureItem[]>(`${this.apiUrl}/features/`);
+  // }
 }

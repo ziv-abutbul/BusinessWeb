@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from rest_framework import generics,viewsets
-from .models import ContactInfo, ContentSection, SiteLogo, SiteSettings, GalleryImage
-from .serializers import ContactInfoSerializer, ContentSectionSerializer, SiteLogoSerializer, SiteSettingsSerializer, GalleryImageSerializer
+from .models import ContactInfo, ContentSection, FeatureGrid, SiteLogo, SiteSettings, GalleryImage
+from .serializers import ContactInfoSerializer, ContentSectionSerializer, FeatureGridSerializer, SiteLogoSerializer, SiteSettingsSerializer, GalleryImageSerializer
 
 class SiteSettingsView(generics.RetrieveAPIView):
     queryset = SiteSettings.objects.all()
@@ -30,3 +30,7 @@ class SiteLogoView(generics.RetrieveAPIView):
 class ContentSectionListView(generics.ListAPIView):
     queryset = ContentSection.objects.all()
     serializer_class = ContentSectionSerializer
+
+class FeatureGridListView(generics.ListAPIView):
+    queryset = FeatureGrid.objects.all()
+    serializer_class = FeatureGridSerializer

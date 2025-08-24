@@ -1,0 +1,20 @@
+<section class="feature-grid" [ngClass]="'cols-' + columns">
+  <div class="feature-card" *ngFor="let feature of features">
+    <ng-container *ngIf="feature.link; else noLink">
+      <a [href]="feature.link" target="_blank" rel="noopener noreferrer">
+        <div class="icon">
+          <i [class]="feature.icon"></i>
+        </div>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </a>
+    </ng-container>
+    <ng-template #noLink>
+      <div class="icon">
+        <i [class]="feature.icon"></i>
+      </div>
+      <h3>{{ feature.title }}</h3>
+      <p>{{ feature.description }}</p>
+    </ng-template>
+  </div>
+</section>

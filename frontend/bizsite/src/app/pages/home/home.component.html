@@ -20,7 +20,7 @@
 </section>
 
 
-
+<!-- content-section section -->
 <app-content-section
   *ngFor="let section of sections"
   [backgroundImage]="section.background_image"
@@ -28,4 +28,15 @@
   [title]="section.title"
   [description]="section.description">
 </app-content-section>
-
+<!-- feature -grid section -->
+<app-feature-grid 
+  [features]="features"
+  [columns]="3">
+</app-feature-grid>
+<!--testimonial section -->
+<app-testimonial
+  author="דנה כהן"
+  role="מנהלת פרויקטים בחברה X"
+  text="השירות היה מצוין! עזרו לנו להגיע לתוצאות מהר מאוד."
+  image="assets/client1.jpg">
+</app-testimonial>

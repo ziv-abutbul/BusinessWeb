@@ -1,0 +1,71 @@
+.testimonial {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem;
+  background: #f9f9f9;
+}
+
+.testimonial-card {
+  display: flex;
+  align-items: center;
+  max-width: 800px;
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  gap: 2rem;
+}
+
+.avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.content {
+  flex: 1;
+}
+
+.text {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.author {
+  font-weight: bold;
+  margin: 0;
+}
+
+.role {
+  color: gray;
+  font-size: 0.9rem;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .testimonial-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .avatar img {
+    margin-bottom: 1rem;
+  }
+}
