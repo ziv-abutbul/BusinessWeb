@@ -1,0 +1,58 @@
+.feature-grid {
+  display: grid;
+  gap: 2rem;
+  margin: 4rem 0;
+  text-align: center;
+
+  &.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  &.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  &.cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+  .feature-card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    .icon {
+      font-size: 2.5rem;
+      color: #0077ff;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      margin: 0.5rem 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+.feature-card a {
+  text-decoration: none;  // מסיר את הקו
+  color: inherit;         // שומר על הצבע של הטקסט
+  display: block;         // כדי שכולל את כל הקליק על הכרטיס
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .feature-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+@media (max-width: 480px) {
+  .feature-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

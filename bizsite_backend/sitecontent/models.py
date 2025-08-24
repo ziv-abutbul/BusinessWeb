@@ -52,3 +52,24 @@ class ContentSection(models.Model):
 
     def __str__(self):
         return self.title
+    
+class FeatureGrid(models.Model):
+    ICON_TYPE_CHOICES = [
+        ('class', 'CSS Class'),
+        ('url', 'Image URL'),
+    ]
+
+    icon = models.CharField(max_length=255, help_text="CSS class (למשל: 'fa fa-star') או קישור לתמונה")
+    icon_type = models.CharField(max_length=10, choices=ICON_TYPE_CHOICES, default='class')
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    link = models.URLField(blank=True, null=True)  # 🔹 אופציונלי
+
+
+    order = models.PositiveIntegerField(default=0, help_text="סדר הופעה ברשימה")
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return self.title
