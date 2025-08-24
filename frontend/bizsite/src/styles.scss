@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+/* Reset קטן וניקוי טיפוגרפי */
+* { box-sizing: border-box; }
+html, body { padding: 0; margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; }
+:root {
+--brand: #111827; /* אפשר להחליף לצבע המותג */
+}
+
+
+a { color: inherit; }

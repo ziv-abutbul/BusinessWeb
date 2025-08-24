@@ -1,0 +1,11 @@
+<section class="content-section" [ngStyle]="{'background-image': 'url(' + backgroundImage + ')'}">
+  <div class="overlay">
+    <div class="text-area fade-in-left">
+      <h2>{{ title }}</h2>
+      <p>{{ description }}</p>
+    </div>
+    <div class="image-area fade-in-right" *ngIf="floatingImage">
+      <img [src]="floatingImage" alt="floating image" />
+    </div>
+  </div>
+</section>

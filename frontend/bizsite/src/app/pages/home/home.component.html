@@ -1,0 +1,31 @@
+<section class="hero" *ngIf="hero"
+  [ngStyle]="{'background-image': 'url(' + hero.hero_image + ')'}">
+  <div class="overlay">
+    <h1>{{ hero.headline }}</h1>
+    <p>{{ hero.subheadline }}</p>
+    <a class="cta" href="#contact">דברו איתנו</a>
+  </div>
+</section>
+
+<section id="gallery" class="gallery" *ngIf="gallery.length > 0">
+  <h2>מהשטח שלנו</h2>
+  <div class="marquee" (mouseenter)="pause()" (mouseleave)="play()">
+    <div class="track" [style.animationPlayState]="playState">
+      <img *ngFor="let img of looped"
+           [src]="img.image"
+           [alt]="img.caption || 'תמונה מהעסק'"
+           loading="lazy" />
+    </div>
+  </div>
+</section>
+
+
+
+<app-content-section
+  *ngFor="let section of sections"
+  [backgroundImage]="section.background_image"
+  [floatingImage]="section.floating_image"
+  [title]="section.title"
+  [description]="section.description">
+</app-content-section>
+

@@ -1,0 +1,10 @@
+<nav class="nav" role="navigation">
+  <div class="brand" *ngIf="logoUrl">
+    <img [src]="logoUrl" [alt]="altText" class="logo" />
+  </div>
+  <ul class="links">
+    <li><a routerLink="/">דף הבית</a></li>
+    <li><a href="#gallery">גלריה</a></li>
+    <li><a href="#contact">צור קשר</a></li>
+  </ul>
+</nav>

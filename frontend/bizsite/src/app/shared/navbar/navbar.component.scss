@@ -1,0 +1,20 @@
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; 
+  padding: .75rem 1rem; direction: rtl;
+  backdrop-filter: blur(6px);
+  background: rgba(255,255,255,.7);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+
+.brand {
+  display: flex; align-items: center;
+  img.logo { height: 40px; width: auto; border-radius: 6px; }
+}
+
+.links {
+  list-style: none; display: flex; gap: 1rem;
+  margin: 0 auto;  // מרכז את הרשימה באמצע
+  padding: 0;
+  a { text-decoration: none; font-weight: 600; }
+}
