@@ -33,7 +33,14 @@ export interface HeroSection {
   cta_text?: string;
   cta_link?: string;
 }
-
+export interface SplitSection {
+  id: number;
+  background_color?: string;
+  background_image?: string;
+  headline: string;
+  description?: string;
+  image?: string;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -61,4 +68,9 @@ export class ImagesService {
   getHeroSection(): Observable<HeroSection> {
     return this.http.get<HeroSection>(`${this.apiUrl}/heroSection/`);
   }
+
+  getSections(): Observable<SplitSection[]> {
+    return this.http.get<SplitSection[]>(`${this.apiUrl}/split-sections/`);
+  }
+  
 }
