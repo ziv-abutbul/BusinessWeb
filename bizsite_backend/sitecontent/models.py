@@ -73,3 +73,14 @@ class FeatureGrid(models.Model):
 
     def __str__(self):
         return self.title
+    
+class HeroSection(models.Model):
+    headline = models.CharField(max_length=255)
+    subheadline = models.TextField(blank=True, null=True)
+    background_image = models.ImageField(upload_to='hero/')
+    background_video = models.FileField(upload_to='hero/videos/', blank=True, null=True)
+    cta_text = models.CharField(max_length=100, blank=True, null=True)
+    cta_link = models.URLField(blank=True, null=True)
+
+    def __str__(self):
+        return self.headline

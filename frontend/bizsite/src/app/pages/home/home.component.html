@@ -37,6 +37,18 @@
 <app-testimonial
   author="דנה כהן"
   role="מנהלת פרויקטים בחברה X"
-  text="השירות היה מצוין! עזרו לנו להגיע לתוצאות מהר מאוד."
+  text="השירות היה מצוידן! עזרו לנו להגיע לתוצאות מהר מאוד."
   image="assets/client1.jpg">
 </app-testimonial>
+<!-- hero section -->
+<app-HeroSection
+  *ngIf="heroSectoion"
+  [backgroundImage]="heroSectoion.background_image"
+  [backgroundVideo]="heroSectoion.background_video"
+  [headline]="heroSectoion.headline"
+  [subheadline]="heroSectoion.subheadline"
+  [ctaText]="heroSectoion.cta_text || ''"
+  [ctaLink]="heroSectoion.cta_link || ''">
+</app-HeroSection>
+
+

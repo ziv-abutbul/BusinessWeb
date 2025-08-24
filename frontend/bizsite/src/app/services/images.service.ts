@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment'; // 👈 מוסיפים
+import { HeroSectionComponent } from '../components/hero/hero.component';
 
 export interface SiteSettings {
   hero_image: string;
@@ -23,6 +24,14 @@ export interface ContentSection {
   background_image: string;
   floating_image?: string;
   order: number;
+}
+export interface HeroSection {
+  headline: string;
+  subheadline: string;
+  background_image: string;
+  background_video?: string;
+  cta_text?: string;
+  cta_link?: string;
 }
 
 @Injectable({
@@ -48,5 +57,8 @@ export class ImagesService {
   }
   getContentSection(): Observable<ContentSection[]> {
     return this.http.get<ContentSection[]>(`${this.apiUrl}/sections/`);
+  }
+  getHeroSection(): Observable<HeroSection> {
+    return this.http.get<HeroSection>(`${this.apiUrl}/heroSection/`);
   }
 }

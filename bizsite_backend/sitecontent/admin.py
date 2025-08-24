@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ContactInfo, FeatureGrid, SiteLogo, SiteSettings, GalleryImage , ContentSection
+from .models import ContactInfo, FeatureGrid, HeroSection, SiteLogo, SiteSettings, GalleryImage , ContentSection
 
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(admin.ModelAdmin):
@@ -27,3 +27,7 @@ class FeatureGridAdmin(admin.ModelAdmin):
     list_display = ('title', 'icon', 'icon_type', 'order')
     list_editable = ('order',)
     ordering = ('order',)
+
+@admin.register(HeroSection)
+class HeroSectionAdmin(admin.ModelAdmin):
+    list_display = ('headline', 'cta_text')
