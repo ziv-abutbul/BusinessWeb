@@ -1,0 +1,15 @@
+<section class="split-section"
+         [ngStyle]="{
+           'background-color': backgroundColor || 'transparent',
+           'background-image': backgroundImage ? 'url(' + backgroundImage + ')' : 'none'
+         }">
+  <div class="content">
+    <div class="text">
+      <h2>{{ headline }}</h2>
+      <p>{{ description }}</p>
+    </div>
+    <div class="image" *ngIf="image">
+      <img [src]="image" alt="section image" />
+    </div>
+  </div>
+</section>

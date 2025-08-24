@@ -6,13 +6,15 @@ import { FeatureGridComponent } from 'src/app/components/feature-grid/feature-gr
 import { TestimonialComponent } from 'src/app/components/testimonial/testimonial.component';
 import { FeatureItem,FeatureService } from 'src/app/services/feature.service';
 import { HeroSectionComponent } from 'src/app/components/hero/hero.component';
+import { SplitSectionComponent } from 'src/app/components/split-section/split-section.component';
+import { SplitSection } from '../../services/images.service';
 
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,ContentSectionComponent , FeatureGridComponent,TestimonialComponent,HeroSectionComponent],
+  imports: [CommonModule,ContentSectionComponent , FeatureGridComponent,TestimonialComponent,HeroSectionComponent,SplitSectionComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -25,6 +27,7 @@ export class HomeComponent implements OnInit {
   features: FeatureItem[] = [];   // 🔹 מוסיפים את זה
   columns: number = 3;
   heroSectoion?: HeroSection;  // 🔹 לא HeroSectionComponent
+  featureSections: SplitSection[] = [];
 
   constructor(private imagesService: ImagesService,private FeatureService: FeatureService) {}
 
@@ -46,7 +49,18 @@ export class HomeComponent implements OnInit {
       this.imagesService.getHeroSection().subscribe(data => {
       this.heroSectoion = data;
   });
+    this.imagesService.getSections().subscribe({
+      next: (data) => {
+        this.featureSections = data;
+              console.log(this.featureSections); // חשוב לראות ב־console
+
+      },
+      error: (err) => {
+        console.error('שגיאה בטעינת ה־SplitSections', err);
+      }
+    });
   }
+  
 
   
 

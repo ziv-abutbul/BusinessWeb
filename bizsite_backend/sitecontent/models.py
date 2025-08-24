@@ -84,3 +84,13 @@ class HeroSection(models.Model):
 
     def __str__(self):
         return self.headline
+
+class SplitSection(models.Model):
+    background_color = models.CharField(max_length=20, blank=True, null=True)
+    background_image = models.ImageField(upload_to="split_sections/", blank=True, null=True)
+    headline = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to="split_sections/", blank=True, null=True)
+
+    def __str__(self):
+        return self.headline

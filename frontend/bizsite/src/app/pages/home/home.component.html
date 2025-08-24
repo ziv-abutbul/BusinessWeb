@@ -51,4 +51,18 @@
   [ctaLink]="heroSectoion.cta_link || ''">
 </app-HeroSection>
 
+<!-- split section -->
+<app-split-section
+  *ngFor="let section of featureSections"
+[backgroundColor]="section.background_color || '#ffffff'"
+[backgroundImage]="section.background_image || ''"
+[headline]="section.headline || ''"
+[description]="section.description || ''"
+[image]="section.image || ''">
+</app-split-section>
+
+
+
+
+
 
