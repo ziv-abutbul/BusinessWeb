@@ -86,11 +86,15 @@ class HeroSection(models.Model):
         return self.headline
 
 class SplitSection(models.Model):
-    background_color = models.CharField(max_length=20, blank=True, null=True)
+    background_color = models.CharField(max_length=20, blank=True, null=True, default="#FFFFFF")  # ברירת מחדל לבן
     background_image = models.ImageField(upload_to="split_sections/", blank=True, null=True)
     headline = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to="split_sections/", blank=True, null=True)
+    text_color = models.CharField(max_length=20, blank=True, null=True, default="#000000")  # ברירת מחדל שחור
+    text_color_title = models.CharField(max_length=20, blank=True, null=True, default="#000000")  # ברירת מחדל שחור
+
 
     def __str__(self):
         return self.headline
+    

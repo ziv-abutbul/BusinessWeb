@@ -4,8 +4,8 @@
            'background-image': backgroundImage ? 'url(' + backgroundImage + ')' : 'none'
          }">
   <div class="content">
-    <div class="text">
-      <h2>{{ headline }}</h2>
+    <div class="text" [ngStyle]="{'color': textColor || '#000'}">
+      <h2 [ngStyle]="{'color': textColor_title || '#000'}">{{ headline }}</h2>
       <p>{{ description }}</p>
     </div>
     <div class="image" *ngIf="image">

@@ -40,6 +40,8 @@ export interface SplitSection {
   headline: string;
   description?: string;
   image?: string;
+  text_color?: string;
+  text_color_title?: string;
 }
 @Injectable({
   providedIn: 'root'

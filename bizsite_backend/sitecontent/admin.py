@@ -35,7 +35,7 @@ class HeroSectionAdmin(admin.ModelAdmin):
 
 @admin.register(SplitSection)
 class SplitSectionAdmin(admin.ModelAdmin):
-    list_display = ("headline", "background_color", "background_image_preview", "image_preview")
+    list_display = ("headline", "background_color","text_color", "background_image_preview", "image_preview","text_color_title")
     search_fields = ("headline", "description")
 
     def background_image_preview(self, obj):

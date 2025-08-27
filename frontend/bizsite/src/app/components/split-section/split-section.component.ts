@@ -14,4 +14,6 @@ export class SplitSectionComponent {
   @Input() headline?: string;
   @Input() description?: string;
   @Input() image?: string;
+  @Input() textColor?: string;
+  @Input() textColor_title?: string;
 }
