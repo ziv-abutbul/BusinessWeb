@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path
-from .views import ContactInfoViewSet, ContentSectionListView, FeatureGridListView, HeroSectionView, SiteLogoView, SiteSettingsView, GalleryListView, SplitSectionViewSet 
+from .views import ContactInfoViewSet, ContentSectionListView, FeatureGridListView, HeroSectionView, SiteLogoView, SiteSettingsView, GalleryListView, SplitSectionViewSet, TeamMemberViewSet 
 
 urlpatterns = [
     path('hero/', SiteSettingsView.as_view(), name='hero'),
@@ -11,6 +11,8 @@ urlpatterns = [
     path('features/', FeatureGridListView.as_view(), name='feature-list'),
     path('heroSection/', HeroSectionView.as_view(), name='hero'),
     path('split-sections/', SplitSectionViewSet.as_view(), name='hero'),
+    path('team-members/', TeamMemberViewSet.as_view(), name='team-members'),
+
 
 
 

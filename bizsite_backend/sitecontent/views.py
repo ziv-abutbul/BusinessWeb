@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from rest_framework import generics,viewsets
-from .models import ContactInfo, ContentSection, FeatureGrid, HeroSection, SiteLogo, SiteSettings, GalleryImage, SplitSection
-from .serializers import ContactInfoSerializer, ContentSectionSerializer, FeatureGridSerializer, HeroSectionSerializer, SiteLogoSerializer, SiteSettingsSerializer, GalleryImageSerializer, SplitSectionSerializer
+from .models import ContactInfo, ContentSection, FeatureGrid, HeroSection, SiteLogo, SiteSettings, GalleryImage, SplitSection, TeamMember
+from .serializers import ContactInfoSerializer, ContentSectionSerializer, FeatureGridSerializer, HeroSectionSerializer, SiteLogoSerializer, SiteSettingsSerializer, GalleryImageSerializer, SplitSectionSerializer, TeamMemberSerializer
 
 class SiteSettingsView(generics.RetrieveAPIView):
     queryset = SiteSettings.objects.all()
@@ -46,3 +46,7 @@ class HeroSectionView(generics.RetrieveAPIView):
 class SplitSectionViewSet(generics.ListAPIView):
     queryset = SplitSection.objects.all()
     serializer_class = SplitSectionSerializer
+
+class TeamMemberViewSet(generics.ListAPIView):
+    queryset = TeamMember.objects.all()
+    serializer_class = TeamMemberSerializer

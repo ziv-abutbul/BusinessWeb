@@ -8,13 +8,15 @@ import { FeatureItem,FeatureService } from 'src/app/services/feature.service';
 import { HeroSectionComponent } from 'src/app/components/hero/hero.component';
 import { SplitSectionComponent } from 'src/app/components/split-section/split-section.component';
 import { SplitSection } from '../../services/images.service';
+import { ContactService, TeamMember } from 'src/app/services/contact.service';
+import { TeamSectionComponent } from 'src/app/components/team-section/team-section.component';
 
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,ContentSectionComponent , FeatureGridComponent,TestimonialComponent,HeroSectionComponent,SplitSectionComponent],
+  imports: [CommonModule,ContentSectionComponent , FeatureGridComponent,TestimonialComponent,HeroSectionComponent,SplitSectionComponent,TeamSectionComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -28,8 +30,9 @@ export class HomeComponent implements OnInit {
   columns: number = 3;
   heroSectoion?: HeroSection;  // 🔹 לא HeroSectionComponent
   featureSections: SplitSection[] = [];
+  teamMembers: TeamMember[]=[];
 
-  constructor(private imagesService: ImagesService,private FeatureService: FeatureService) {}
+  constructor(private imagesService: ImagesService,private FeatureService: FeatureService, private contactService: ContactService) {}
 
   ngOnInit(): void {
     this.imagesService.getHero().subscribe(data => {
@@ -57,6 +60,16 @@ export class HomeComponent implements OnInit {
       },
       error: (err) => {
         console.error('שגיאה בטעינת ה־SplitSections', err);
+      }
+    });
+    //------Team Members -----
+        this.contactService.getTeamMembers().subscribe({
+      next: (data) => {
+        this.teamMembers = data;
+        console.log(this.teamMembers); // חשוב לראות ב־console
+      },
+      error: (err) => {
+        console.error('שגיאה בטעינת teamMembers', err);
       }
     });
   }

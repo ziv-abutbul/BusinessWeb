@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ContactInfo, FeatureGrid, HeroSection, SiteLogo, SiteSettings, GalleryImage , ContentSection, SplitSection
+from .models import ContactInfo, FeatureGrid, HeroSection, SiteLogo, SiteSettings, GalleryImage , ContentSection, SplitSection, TeamMember
 
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(admin.ModelAdmin):
@@ -51,3 +51,8 @@ class SplitSectionAdmin(admin.ModelAdmin):
         return "—"
     image_preview.allow_tags = True
     image_preview.short_description = "Image"
+
+@admin.register(TeamMember)
+class TeamMemberAdmin(admin.ModelAdmin):
+    list_display = ('name', 'role', 'linkedin', 'github', 'twitter')
+    search_fields = ('name', 'role')

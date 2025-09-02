@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import ContentSection, FeatureGrid, HeroSection, SiteLogo, SiteSettings, GalleryImage , ContactInfo, SplitSection
+from .models import ContentSection, FeatureGrid, HeroSection, SiteLogo, SiteSettings, GalleryImage , ContactInfo, SplitSection, TeamMember
 
 class SiteSettingsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -38,4 +38,9 @@ class HeroSectionSerializer(serializers.ModelSerializer):
 class SplitSectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = SplitSection
+        fields = '__all__'
+
+class TeamMemberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TeamMember
         fields = '__all__'

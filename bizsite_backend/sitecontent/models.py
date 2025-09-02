@@ -98,3 +98,14 @@ class SplitSection(models.Model):
     def __str__(self):
         return self.headline
     
+class TeamMember(models.Model):
+    name = models.CharField(max_length=100)
+    role = models.CharField(max_length=100, blank=True, null=True)
+    image = models.ImageField(upload_to="team/", blank=True, null=True)
+    linkedin = models.URLField(blank=True, null=True)
+    github = models.URLField(blank=True, null=True)
+    twitter = models.URLField(blank=True, null=True)
+    facebook = models.URLField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name

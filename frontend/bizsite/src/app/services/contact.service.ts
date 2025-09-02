@@ -10,6 +10,15 @@ export interface ContactInfo {
   facebook?: string;
   whatsapp?: string;
 }
+export interface TeamMember {
+  name: string;
+  role: string;
+  image?: string;
+  linkedin?: string;
+  github?: string;
+  twitter?: string;
+  facebook?: string;
+}
 
 // export interface FeatureItem {
 //   icon: string;   // class name for the icon (or URL if תמונה)
@@ -29,7 +38,8 @@ export class ContactService {
   getContactInfo(): Observable<ContactInfo[]> {
     return this.http.get<ContactInfo[]>(`${this.apiUrl}/contact/`);
   }
-  // getFeatureItemInfo(): Observable<FeatureItem[]> {
-  //   return this.http.get<FeatureItem[]>(`${this.apiUrl}/features/`);
-  // }
+  getTeamMembers(): Observable<TeamMember[]> {
+    return this.http.get<TeamMember[]>(`${this.apiUrl}/team-members/`);
+  }
+
 }
